@@ -97,6 +97,11 @@ go build
 - $GOPPC64：适用于pcc64和pcc64le架构
 - $GOWASM：适用于wasm架构
 
+## $GOROOT_BOOTSTRAP
+自1.14版本后Go实现了自举（自己写自己），所以安装1.14后的版本需要配置$GOROOT_BOOTSTRAP来指定1.14版本的编译器位置。
+
+如果不设置会报错：Set $GOROOT_BOOTSTRAP to a working Go tree >= Go 1.4.
+
 ## Go环境变量相关命令
 ```
 //查看Go所有的环境变量
