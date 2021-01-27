@@ -49,7 +49,7 @@ curl -O https://dl.google.com/go/go1.15.7.linux-amd64.tar.gz
 tar -zxvf go1.15.7.linux-amd64.tar.gz -C `cd $GOROOT && cd .. && pwd`
 ```
 
-##编译安装
+## 编译安装
 ```
 cd $GOROOT\src && ./all.bash
 ```
