@@ -1,4 +1,4 @@
-# go-student-wiki
+# wiki-go
 
 ----------
 
