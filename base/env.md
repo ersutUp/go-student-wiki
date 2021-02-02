@@ -13,6 +13,7 @@ Go模块化问世前人们在开发时需要将项目的根目录配置到 $GOPA
 ### $GOPATH目录的结构
 - $GOPATH/bin	:编译后生成的可执行文件,为了执行方便可将整个目录添加至 $PATH 环境变量中
 - $GOPATH/pkg	:包文件（**这块还不太明白**）
+- $GOPATH/pkg/mod：module模式下依赖库的存储位置
 - $GOPATH/src	:存放源代码
 
 ## $GOBIN（一般使用默认值）
@@ -101,6 +102,15 @@ go build
 自1.14版本后Go实现了自举（自己写自己），所以安装1.14后的版本需要配置$GOROOT_BOOTSTRAP来指定1.14版本的编译器位置。
 
 如果不设置会报错：Set $GOROOT_BOOTSTRAP to a working Go tree >= Go 1.4.
+
+## $GO111MODULE
+Go1.1.1版本开始添加了[ module 功能](./mod.md)，$GO111MODULE 是控制 module 的开启与关闭。可选值 on、off和auto（默认值）。
+
+- `$GO111MODULE=off` 即关闭 module 功能，查找依赖库将从vendor目录下和 $GOPATH 目录中进行，也可以叫 GOPATH 模式。
+
+- `$GO111MODULE=on` 即开启 module 功能，查找依赖库将从vendor目录下和 $GOPATH/pkg/mod 目录中进行。
+
+- `$GO111MODULE=auto`即根据项目根目录下是否存在 go.mod 文件来决定是否启用 module 功能，特殊目录：GOPATH/src 目录下一直保持 GOPATH 模式。
 
 ## Go环境变量相关命令
 ```
